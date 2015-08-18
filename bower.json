@@ -1,0 +1,17 @@
+{
+  "name": "adapt-character-text",
+  "version": "1.1.5",
+  "homepage": "https://github.com/darylhedley/adapt-character-text",
+  "authors": [
+    "Robert Peek <robert@delta-net.co.uk>"
+  ],
+  "displayName" : "Character Text",
+  "component" : "character-text",
+  "description": "A simple core contributed text component",
+  "main": "/js/adapt-character-text.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-component"
+  ],
+  "license": "GPLv3"
+}
