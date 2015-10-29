@@ -1,6 +1,3 @@
 #adapt-character-text
 
-A very simple adapt core contributed text component.
-
-
-
+A component that displays a graphic and a speech bubble style text box.

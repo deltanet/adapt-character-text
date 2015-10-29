@@ -1,27 +1,26 @@
 {
   "name": "adapt-character-text",
-  "version": "1.1.5",
+  "version": "2.0.0",
+  "framework": "2.0.3",
   "homepage": "https://github.com/deltanet/adapt-character-text",
-  "authors": [
-    "Robert Peek <robert@delta-net.co.uk>"
-  ],
+  "issues": "https://github.com/deltanet/adapt-character-text/issues",
+  "description": "An component that displays an image and a speech bubble style text area",
+  "main": "/js/adapt-character-text.js",
   "displayName": "Character Text",
   "component": "character-text",
-  "description": "A text component",
-  "main": "/js/adapt-character-text.js",
   "keywords": [
     "adapt-plugin",
     "adapt-component"
   ],
-  "license": "GPLv3",
-  "_release": "1.1.5",
+  "license": "GPL-3.0",
+  "_release": "2.0.0",
   "_resolution": {
     "type": "version",
-    "tag": "v1.1.5",
+    "tag": "v2.0.0",
     "commit": "26c57ac93f4d3d41d9eef65680df911f337f66d5"
   },
   "_source": "git://github.com/deltanet/adapt-character-text.git",
-  "_target": "~1.1.5",
+  "_target": "~2.0.0",
   "_originalSource": "adapt-character-text",
   "_direct": true
 }

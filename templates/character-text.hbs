@@ -3,11 +3,11 @@
     <div class="character-text-widget component-widget">
 
 	    <div class="character-text-text">
-	    	<div class="bubble">{{{_text.body}}}</div>
+	    	<div class="bubble">{{{a11y_text _text.body}}}</div>
 	    </div>
 
-	    <div class="character-text-graphic">
-	        <img src="{{_graphic.src}}" alt="{{_graphic.alt}}" title="{{_graphic.title}}" data-large="{{_graphic.large}}" data-medium="{{_graphic.medium}}" data-small="{{_graphic.small}}"/>
+	    <div class="character-text-graphic" >
+	        <img src="{{_graphic.src}}" alt="{{_graphic.alt}}" data-large="{{_graphic.large}}" data-medium="{{_graphic.medium}}" data-small="{{_graphic.small}}" tabindex="0"/>
 	    </div>
 
     </div>
