@@ -6,11 +6,28 @@
     "_classes": "",
     "_layout": "full",
     "title": "Character Text",
-    "displayTitle": "Display title",
-    "body": "Body text",
-    "instruction": "Instruction text",
+    "displayTitle": "Character Text",
+    "body": "",
+    "instruction": "",
+    "displayTitleReduced": "Reduced title",
+    "bodyReduced": "Reduced text",
+    "_reducedText": {
+        "_isEnabled": true
+    },
+    "_audio": {
+        "_isEnabled": true,
+        "_showControls": true,
+        "_autoplay": true,
+        "_channel": 0,
+        "_location": "top-right",
+        "_media": {
+            "mp3": "course/en/audio/***.mp3",
+            "ogg": "course/en/audio/***.ogg"
+        }
+    },
     "_text": {
-        "body": "This component allows an image to be positioned left or right with a speech box aligned anywhere on the screen.<br><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque felis id aliquet malesuada. Cras ac arcu velit.<br><br>Maecenas venenatis malesuada venenatis. Nunc tincidunt libero vel velit blandit congue. Quisque tempus risus eu urna aliquet, et rutrum augue lacinia.",
+        "body": "This component allows an image to be positioned left or right with a speech box aligned anywhere on the screen.",
+        "bodyReduced": "Reduced text",
         "_location": "right",
         "_top": 5,
         "_left": 45,
@@ -25,4 +42,4 @@
         "medium": "",
         "small": ""
     }
-},
+}

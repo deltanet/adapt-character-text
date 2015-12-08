@@ -1,8 +1,3 @@
-/*
-* adapt-character-text
-* License - http://github.com/adaptlearning/adapt_framework/blob/master/LICENSE
-* Maintainers - Robert Peek <robert@delta-net.co.uk>
-*/
 define(function(require) {
 
     var ComponentView = require('coreViews/componentView');
@@ -13,6 +8,8 @@ define(function(require) {
         preRender: function() {
             this.listenTo(Adapt, 'device:changed', this.resizeImage);
             this.listenTo(Adapt, 'device:resize', this.resizeControl, this);
+            // Listen for text change on audio extension
+            this.listenTo(Adapt, "audio:changeText", this.replaceText);
         },
         
         postRender: function() {
@@ -39,10 +36,13 @@ define(function(require) {
               } else {
                 this.setupDefault();
             }
+
+            if (this.model.get('_reducedText') && this.model.get('_reducedText')._isEnabled && Adapt.config.get('_reducedText')._isEnabled) {
+                this.replaceText(Adapt.audio.textSize);
+            }
         },
 
         resizeControl: function() {
-            console.log("Resize");
 
             this.resetStyles();
 
@@ -54,7 +54,6 @@ define(function(require) {
         },
 
         setupDefault: function() {
-            console.log("Default");
             // Text
             this.$('.character-text-text').addClass('overlay');
             this.$('.character-text-text').css('width',this.model.get('_text')._width+'%');
@@ -74,8 +73,6 @@ define(function(require) {
         },
 
         setupMobile: function() {
-            console.log("Mobile");
-
             this.$('.character-text-graphic').addClass('center');
             this.$('.bubble').addClass('bubble-top');
         },
@@ -132,6 +129,23 @@ define(function(require) {
         remove: function() {
             this.$(this.model.get('cssSelector')).off('inview');
             Backbone.View.prototype.remove.apply(this, arguments);
+        },
+
+        // Reduced text
+        replaceText: function(value) {
+            // If enabled
+            if (this.model.get('_reducedText') && this.model.get('_reducedText')._isEnabled && Adapt.config.get('_reducedText')._isEnabled) {
+                // Change component title and body
+                if(value == 0) {
+                    this.$('.component-title-inner').html(this.model.get('displayTitle')).a11y_text();
+                    this.$('.component-body-inner').html(this.model.get('body')).a11y_text();
+                    this.$('.bubble').html(this.model.get('_text').body).a11y_text();
+                } else {
+                    this.$('.component-title-inner').html(this.model.get('displayTitleReduced')).a11y_text();
+                    this.$('.component-body-inner').html(this.model.get('bodyReduced')).a11y_text();
+                    this.$('.bubble').html(this.model.get('_text').bodyReduced).a11y_text();
+                }
+            }
         }
         
     });
