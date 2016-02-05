@@ -61,14 +61,16 @@ define(function(require) {
             this.$('.character-text-text').css('left',this.model.get('_text')._left+'%');
             this.$('.bubble').addClass('bubble-'+(this.model.get('_text')._location));
             // Graphic
-            if(this.model.get('_graphic')._location == "left") {
-                this.$('.character-text-graphic').addClass('left');
-            }
-            if(this.model.get('_graphic')._location == "right") {
-                this.$('.character-text-graphic').addClass('right');
-            }
-            if(this.model.get('_graphic')._location == "center") {
-                this.$('.character-text-graphic').addClass('center');
+            if(this.model.has('_graphic')) {
+                if(this.model.get('_graphic')._location == "left") {
+                    this.$('.character-text-graphic').addClass('left');
+                }
+                if(this.model.get('_graphic')._location == "right") {
+                    this.$('.character-text-graphic').addClass('right');
+                }
+                if(this.model.get('_graphic')._location == "center") {
+                    this.$('.character-text-graphic').addClass('center');
+                }
             }
         },
 
