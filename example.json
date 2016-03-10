@@ -9,11 +9,6 @@
     "displayTitle": "Character Text",
     "body": "",
     "instruction": "",
-    "displayTitleReduced": "Reduced title",
-    "bodyReduced": "Reduced text",
-    "_reducedText": {
-        "_isEnabled": true
-    },
     "_audio": {
         "_isEnabled": true,
         "_showControls": true,
@@ -23,6 +18,11 @@
         "_media": {
             "desktop": "course/en/audio/***.mp3",
             "mobile": "course/en/audio/***.mp3"
+        },
+        "_reducedText": {
+            "_isEnabled": true,
+            "displayTitleReduced": "Reduced title",
+            "bodyReduced": "Reduced text"
         }
     },
     "_text": {
