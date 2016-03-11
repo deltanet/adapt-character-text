@@ -37,7 +37,7 @@ define(function(require) {
                 this.setupDefault();
             }
 
-            if (Adapt.config.get('_audio') && Adapt.config.get('_audio')._isReducedTextEnabled && this.model.get('_audio') && this.model.get('_audio')._reducedText._isEnabled) {
+            if (Adapt.config.get('_audio') && Adapt.config.get('_audio')._isReducedTextEnabled && this.model.get('_reducedText') && this.model.get('_reducedText')._isEnabled) {
                 this.replaceText(Adapt.audio.textSize);
             }
         },
@@ -136,15 +136,15 @@ define(function(require) {
         // Reduced text
         replaceText: function(value) {
             // If enabled
-            if (Adapt.config.get('_audio') && Adapt.config.get('_audio')._isReducedTextEnabled && this.model.get('_audio') && this.model.get('_audio')._reducedText && this.model.get('_audio')._reducedText._isEnabled) {
+            if (Adapt.config.get('_audio') && Adapt.config.get('_audio')._isReducedTextEnabled && this.model.get('_reducedText') && this.model.get('_reducedText')._isEnabled) {
                 // Change component title and body
                 if(value == 0) {
                     this.$('.component-title-inner').html(this.model.get('displayTitle')).a11y_text();
                     this.$('.component-body-inner').html(this.model.get('body')).a11y_text();
                     this.$('.bubble').html(this.model.get('_text').body).a11y_text();
                 } else {
-                    this.$('.component-title-inner').html(this.model.get('_audio')._reducedText.displayTitleReduced).a11y_text();
-                    this.$('.component-body-inner').html(this.model.get('_audio')._reducedText.bodyReduced).a11y_text();
+                    this.$('.component-title-inner').html(this.model.get('_reducedText').displayTitleReduced).a11y_text();
+                    this.$('.component-body-inner').html(this.model.get('_reducedText').bodyReduced).a11y_text();
                     this.$('.bubble').html(this.model.get('_text').bodyReduced).a11y_text();
                 }
             }
