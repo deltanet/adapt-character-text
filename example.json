@@ -9,6 +9,8 @@
     "displayTitle": "Character Text",
     "body": "",
     "instruction": "",
+    "displayTitleReduced": "Reduced title",
+    "bodyReduced": "Reduced text",
     "_text": {
         "body": "This component allows an image to be positioned left or right with a speech box aligned anywhere on the screen.",
         "bodyReduced": "Reduced text",
@@ -27,8 +29,6 @@
         "small": ""
     },
     "_reducedText": {
-        "_isEnabled": true,
-        "displayTitleReduced": "Reduced title",
-        "bodyReduced": "Reduced text"
+        "_isEnabled": true
     }
 }
