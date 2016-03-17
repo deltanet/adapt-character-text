@@ -8,6 +8,11 @@
   "main": "/js/adapt-character-text.js",
   "displayName": "Character Text",
   "component": "character-text",
+  "assetFields" : [
+    "_graphic.large",
+    "_graphic.medium",
+    "_graphic.small"
+  ],
   "keywords": [
     "adapt-plugin",
     "adapt-component"
