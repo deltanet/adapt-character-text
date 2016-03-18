@@ -43,7 +43,7 @@
       "title": "Reduced Text Body",
       "inputType": "TextArea",
       "validators": []
-    }
+    },
     "_text": {
       "type":"object",
       "required":false,
