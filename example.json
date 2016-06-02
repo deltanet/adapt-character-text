@@ -11,20 +11,6 @@
     "instruction": "",
     "displayTitleReduced": "Reduced title",
     "bodyReduced": "Reduced text",
-    "_reducedText": {
-        "_isEnabled": true
-    },
-    "_audio": {
-        "_isEnabled": true,
-        "_showControls": true,
-        "_autoplay": true,
-        "_channel": 0,
-        "_location": "top-right",
-        "_media": {
-            "desktop": "course/en/audio/***.mp3",
-            "mobile": "course/en/audio/***.mp3"
-        }
-    },
     "_text": {
         "body": "This component allows an image to be positioned left or right with a speech box aligned anywhere on the screen.",
         "bodyReduced": "Reduced text",
@@ -41,5 +27,8 @@
         "large": "",
         "medium": "",
         "small": ""
+    },
+    "_reducedText": {
+        "_isEnabled": true
     }
 }
