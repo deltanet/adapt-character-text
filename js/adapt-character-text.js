@@ -6,14 +6,13 @@ define(function(require) {
     var CharacterText = ComponentView.extend({
 
         preRender: function() {
-            this.listenTo(Adapt, 'device:changed', this.resizeImage);
+            this.listenTo(Adapt, 'device:changed', this.resizeControl);
             this.listenTo(Adapt, 'device:resize', this.resizeControl, this);
             // Listen for text change on audio extension
             this.listenTo(Adapt, "audio:changeText", this.replaceText);
         },
         
         postRender: function() {
-            this.setReadyStatus();
             this.listenTo(this.model, 'change:_isComplete', this.removeInviewListener);
             this.resizeImage(Adapt.device.screenSize);
 
@@ -32,28 +31,32 @@ define(function(require) {
             this.$('.bubble').css('border-radius',this.model.get('_text')._cornerRadius+'px');
 
             if (Adapt.device.screenSize=='small') {
-                this.setupMobile();
-              } else {
-                this.setupDefault();
+                this.setupSmallSize();
+            } else if (Adapt.device.screenSize=='medium') {
+                this.setupMediumSize();
+            } else {
+                this.setupLargeSize();
             }
 
-            if (Adapt.config.get('_audio') && Adapt.config.get('_audio')._isReducedTextEnabled && this.model.get('_reducedText') && this.model.get('_reducedText')._isEnabled) {
+            if (this.model.get('_reducedText') && this.model.get('_reducedText')._isEnabled && Adapt.config.get('_reducedText')._isEnabled) {
                 this.replaceText(Adapt.audio.textSize);
             }
         },
 
         resizeControl: function() {
-
             this.resetStyles();
 
             if (Adapt.device.screenSize=='small') {
-                this.setupMobile();
-              } else {
-                this.setupDefault();
+                this.setupSmallSize();
+            } else if (Adapt.device.screenSize=='medium') {
+                this.setupMediumSize();
+            } else {
+                this.setupLargeSize();
             }
+            this.resizeImage(Adapt.device.screenSize);
         },
 
-        setupDefault: function() {
+        setupLargeSize: function() {
             // Text
             this.$('.character-text-text').addClass('overlay');
             this.$('.character-text-text').css('width',this.model.get('_text')._width+'%');
@@ -74,7 +77,12 @@ define(function(require) {
             }
         },
 
-        setupMobile: function() {
+        setupMediumSize: function() {
+            this.$('.character-text-graphic').addClass('center');
+            this.$('.bubble').addClass('bubble-top');
+        },
+
+        setupSmallSize: function() {
             this.$('.character-text-graphic').addClass('center');
             this.$('.bubble').addClass('bubble-top');
         },
@@ -94,7 +102,6 @@ define(function(require) {
             this.$('.character-text-graphic').removeClass('right');
             this.$('.character-text-graphic').removeClass('center');
         },
-
 
         inview: function(event, visible, visiblePartX, visiblePartY) {
             if (visible) {
@@ -136,23 +143,15 @@ define(function(require) {
         // Reduced text
         replaceText: function(value) {
             // If enabled
-            if (Adapt.config.get('_audio') && Adapt.config.get('_audio')._isReducedTextEnabled && this.model.get('_reducedText') && this.model.get('_reducedText')._isEnabled) {
+            if (this.model.get('_reducedText') && this.model.get('_reducedText')._isEnabled && Adapt.config.get('_reducedText')._isEnabled) {
                 // Change component title and body
                 if(value == 0) {
-                    if (this.model.get('displayTitle')) {
-                        this.$('.component-title-inner').html(this.model.get('displayTitle')).a11y_text();
-                    }
-                    if (this.model.get('body')) {
-                        this.$('.component-body-inner').html(this.model.get('body')).a11y_text();
-                    }
+                    this.$('.component-title-inner').html(this.model.get('displayTitle')).a11y_text();
+                    this.$('.component-body-inner').html(this.model.get('body')).a11y_text();
                     this.$('.bubble').html(this.model.get('_text').body).a11y_text();
                 } else {
-                    if (this.model.get('displayTitleReduced')) {
-                        this.$('.component-title-inner').html(this.model.get('displayTitleReduced')).a11y_text();
-                    }
-                    if (this.model.get('bodyReduced')) {
-                        this.$('.component-body-inner').html(this.model.get('bodyReduced')).a11y_text();
-                    }
+                    this.$('.component-title-inner').html(this.model.get('displayTitleReduced')).a11y_text();
+                    this.$('.component-body-inner').html(this.model.get('bodyReduced')).a11y_text();
                     this.$('.bubble').html(this.model.get('_text').bodyReduced).a11y_text();
                 }
             }
