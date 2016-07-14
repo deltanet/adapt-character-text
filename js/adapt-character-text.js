@@ -6,17 +6,16 @@ define(function(require) {
     var CharacterText = ComponentView.extend({
 
         preRender: function() {
-            this.listenTo(Adapt, 'device:changed', this.resizeImage);
+            this.listenTo(Adapt, 'device:changed', this.resizeControl);
             this.listenTo(Adapt, 'device:resize', this.resizeControl, this);
         },
-        
+
         postRender: function() {
-            this.setReadyStatus();
             this.listenTo(this.model, 'change:_isComplete', this.removeInviewListener);
             this.resizeImage(Adapt.device.screenSize);
 
             // Check if instruction or body is set, otherwise force completion
-            var cssSelector = this.$('.component-instruction').length > 0 ? '.component-instruction' 
+            var cssSelector = this.$('.component-instruction').length > 0 ? '.component-instruction'
                 : (this.$('.bubble').length > 0 ? '.bubble' : null);
 
             if (!cssSelector) {
@@ -30,24 +29,28 @@ define(function(require) {
             this.$('.bubble').css('border-radius',this.model.get('_text')._cornerRadius+'px');
 
             if (Adapt.device.screenSize=='small') {
-                this.setupMobile();
-              } else {
-                this.setupDefault();
+                this.setupSmallSize();
+            } else if (Adapt.device.screenSize=='medium') {
+                this.setupMediumSize();
+            } else {
+                this.setupLargeSize();
             }
         },
 
         resizeControl: function() {
-
             this.resetStyles();
 
             if (Adapt.device.screenSize=='small') {
-                this.setupMobile();
-              } else {
-                this.setupDefault();
+                this.setupSmallSize();
+            } else if (Adapt.device.screenSize=='medium') {
+                this.setupMediumSize();
+            } else {
+                this.setupLargeSize();
             }
+            this.resizeImage(Adapt.device.screenSize);
         },
 
-        setupDefault: function() {
+        setupLargeSize: function() {
             // Text
             this.$('.character-text-text').addClass('overlay');
             this.$('.character-text-text').css('width',this.model.get('_text')._width+'%');
@@ -68,7 +71,12 @@ define(function(require) {
             }
         },
 
-        setupMobile: function() {
+        setupMediumSize: function() {
+            this.$('.character-text-graphic').addClass('center');
+            this.$('.bubble').addClass('bubble-top');
+        },
+
+        setupSmallSize: function() {
             this.$('.character-text-graphic').addClass('center');
             this.$('.bubble').addClass('bubble-top');
         },
@@ -89,7 +97,6 @@ define(function(require) {
             this.$('.character-text-graphic').removeClass('center');
         },
 
-
         inview: function(event, visible, visiblePartX, visiblePartY) {
             if (visible) {
                 if (visiblePartY === 'top') {
@@ -101,7 +108,7 @@ define(function(require) {
                     this._isVisibleBottom = true;
                 }
 
-                if (this._isVisibleTop && this._isVisibleBottom) {                   
+                if (this._isVisibleTop && this._isVisibleBottom) {
                     this.setCompletionStatus();
                 }
             }
@@ -126,9 +133,9 @@ define(function(require) {
             this.$(this.model.get('cssSelector')).off('inview');
             Backbone.View.prototype.remove.apply(this, arguments);
         }
-        
+
     });
-    
+
     Adapt.register("character-text", CharacterText);
-    
+
 });
