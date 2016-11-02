@@ -26,24 +26,9 @@
   		"default": "",
   		"inputType": "Text",
   		"validators": [],
-  		"help": "This is the instruction text"
+  		"help": "This is the instruction text",
+      "translatable": true
 		},
-    "displayTitleReduced": {
-      "type": "string",
-      "required": false,
-      "default": "",
-      "title": "Reduced Text Display Title",
-      "inputType": "Text",
-      "validators": []
-    },
-    "bodyReduced": {
-      "type": "string",
-      "required": false,
-      "default": "",
-      "title": "Reduced Text Body",
-      "inputType": "TextArea",
-      "validators": []
-    },
     "_text": {
       "type":"object",
       "required":false,
@@ -55,7 +40,8 @@
           "default": "",
           "title": "Speech text",
           "inputType": "Text",
-          "validators": []
+          "validators": [],
+          "translatable": true
         },
         "bodyReduced": {
           "type":"string",
@@ -63,7 +49,8 @@
           "default": "",
           "title": "Reduced speech text",
           "inputType": "Text",
-          "validators": []
+          "validators": [],
+          "translatable": true
         },
         "_location": {
           "type":"string",
@@ -146,7 +133,8 @@
           "default": "",
           "inputType": "Text",
           "validators": [],
-          "help": "Alternative text for this image"
+          "help": "Alternative text for this image",
+          "translatable": true
         },
         "large": {
           "type":"string",
@@ -171,22 +159,6 @@
           "inputType": "Asset:image",
           "validators": ["required"],
           "help": "The small sized image for mobile devices"
-        }
-      }
-    },
-    "_reducedText": {
-      "type":"object",
-      "required":false,
-      "title": "Reduced Text Options",
-      "help": "The Audio extension must be installed for reduced text options to work",
-      "properties":{
-        "_isEnabled": {
-          "type":"boolean",
-          "required":false,
-          "default": "false",
-          "title": "Reduced Text Enabled",
-          "inputType": { "type": "Boolean", "options": [false, true]},
-          "validators": []
         }
       }
     }
