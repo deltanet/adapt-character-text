@@ -57,10 +57,10 @@
           "required":true,
           "enum": ["left", "right", "top", "bottom"],
           "default": "right",
-          "title": "Set position",
+          "title": "Position",
           "inputType": {"type": "Select", "options":["left", "right", "top", "bottom"]},
           "validators": ["required"],
-          "help": "This tells Adapt where to position the speech text."
+          "help": "This sets the position of the speech text."
         },
         "_top": {
           "type":"number",
@@ -119,13 +119,13 @@
       "properties":{
         "_location": {
           "type":"string",
-          "required":true,
+          "required":false,
           "enum": ["left", "right", "top", "bottom"],
           "default": "right",
-          "title": "Set position",
+          "title": "Position",
           "inputType": {"type": "Select", "options":["left", "right", "top", "bottom"]},
-          "validators": ["required"],
-          "help": "This tells Adapt where to position the speech text."
+          "validators": [],
+          "help": "This sets the position of the graphic."
         },
         "alt": {
           "type":"string",
@@ -138,27 +138,24 @@
         },
         "large": {
           "type":"string",
-          "required":true,
+          "required":false,
           "default": "",
           "inputType": "Asset:image",
-          "validators": ["required"],
-          "help": "The large sized image for desktop devices"
+          "validators": []
         },
         "medium": {
           "type":"string",
-          "required":true,
+          "required":false,
           "default": "",
           "inputType": "Asset:image",
-          "validators": ["required"],
-          "help": "The medium sized image for desktop devices"
+          "validators": []
         },
         "small": {
           "type":"string",
-          "required":true,
+          "required":false,
           "default": "",
           "inputType": "Asset:image",
-          "validators": ["required"],
-          "help": "The small sized image for mobile devices"
+          "validators": []
         }
       }
     }
