@@ -68,6 +68,9 @@ define(function(require) {
                 if(this.model.get('_graphic')._location == "center") {
                     this.$('.character-text-graphic').addClass('center');
                 }
+                if(this.$('.character-text-graphic img').attr('data-large') !== "") {
+                  this.$('.character-text-widget').addClass('image');
+                }
             }
         },
 
@@ -95,6 +98,8 @@ define(function(require) {
             this.$('.character-text-graphic').removeClass('left');
             this.$('.character-text-graphic').removeClass('right');
             this.$('.character-text-graphic').removeClass('center');
+            // Widget
+            this.$('.character-text-widget').removeClass('image');
         },
 
         inview: function(event, visible, visiblePartX, visiblePartY) {
