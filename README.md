@@ -19,21 +19,21 @@ The attributes listed below are used in *components.json* to configure **Charact
 **_layout** (string): This defines the horizontal position of the component in the block. Acceptable values are `full`, `left` or `right`.  
 
 **instruction** (string): This optional text appears above the component. It is frequently used to
-guide the learner’s interaction with the component. 
+guide the learner’s interaction with the component.
 
 **_text** (object):  This `_text` attributes group stores the properties for the text box. It contains values for **body**, **bodyReduced**, **_location**, **_top**, **_left**, **_width**, **_borderWidth**, and **_cornerRadius**.  
 
->**body** (string): This text displays in the text box. 
+>**body** (string): This text displays in the text box.
 
->**bodyReduced** (string): This text displays in the text box when the [audio](https://github.com/deltanet/adapt-audio) text size is set to reduced. 
+>**bodyReduced** (string): This text displays in the text box when the [audio](https://github.com/deltanet/adapt-audio) text size is set to reduced.
 
->**_location** (string): Sets the position of the text box. Options are `left` or `right`. 
+>**_location** (string): Sets the position of the text box. Options are `left` or `right`.
 
 >**_top** (number): Enter the number of pixels the text box should be from the top of the component widget.
 
 >**_left** (number): Enter the percentage of the component width the text box should be from the left of the component.  
 
->**_width** (number): Enter the percentage of the component width to set the width of the text box. 
+>**_width** (number): Enter the percentage of the component width to set the width of the text box.
 
 >**_borderWidth** (number): Enter the value in pixels for the border width on the text box.
 
@@ -61,7 +61,7 @@ guide the learner’s interaction with the component.
 No known limitations.  
 
 ----------------------------
-**Version number:**  2.0.9    
+**Version number:**  2.0.10    
 **Framework versions supported:**  ^2.0.4    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-character-text/graphs/contributors)     
 **Accessibility support:** Yes  
