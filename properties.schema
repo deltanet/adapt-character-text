@@ -32,14 +32,14 @@
     "_text": {
       "type":"object",
       "required":false,
-      "legend": "Speech box text",
+      "legend": "Speech box",
       "properties":{
         "body": {
           "type":"string",
           "required":false,
           "default": "",
-          "title": "Speech text",
-          "inputType": "Text",
+          "title": "Text",
+          "inputType": "TextArea",
           "validators": [],
           "translatable": true
         },
@@ -47,8 +47,8 @@
           "type":"string",
           "required":false,
           "default": "",
-          "title": "Reduced speech text",
-          "inputType": "Text",
+          "title": "Reduced text",
+          "inputType": "TextArea",
           "validators": [],
           "translatable": true
         },
@@ -65,22 +65,22 @@
         "_top": {
           "type":"number",
           "required":true,
-          "title": "Speech position - top",
+          "title": "Top",
           "minLength": 1,
           "default": "0",
           "inputType": "Number",
           "validators": ["required", "number"],
-          "help": "Top position of speech text"
+          "help": "Top position of speech text."
         },
         "_left": {
           "type":"number",
           "required":true,
-          "title": "Speech position - left",
+          "title": "Left",
           "minLength": 1,
           "default": "0",
           "inputType": "Number",
           "validators": ["required", "number"],
-          "help": "Top position of speech text"
+          "help": "Top position of speech text."
         },
         "_width": {
           "type":"number",
