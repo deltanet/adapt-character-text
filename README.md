@@ -12,22 +12,19 @@ The attributes listed below are used in *components.json* to configure **Charact
 
 [**core model attributes**](https://github.com/adaptlearning/adapt_framework/wiki/Core-model-attributes): These are inherited by every Adapt component. [Read more](https://github.com/adaptlearning/adapt_framework/wiki/Core-model-attributes).
 
-**_component** (string): This value must be: `results-graphic`.
+**_component** (string): This value must be: `character-text`.
 
-**_classes** (string): CSS class name to be applied to **Results Graphic**’s containing `div`. The class must be predefined in one of the Less files. Separate multiple classes with a space.
+**_classes** (string): CSS class name to be applied to **Character text**’s containing `div`. The class must be predefined in one of the Less files. Separate multiple classes with a space.
 
 **_layout** (string): This defines the horizontal position of the component in the block. Acceptable values are `full`, `left` or `right`.  
 
-**instruction** (string): This optional text appears above the component. It is frequently used to
-guide the learner’s interaction with the component.
+**instruction** (string): This optional text appears above the component. It is frequently used to guide the learner’s interaction with the component.
 
-**_text** (object):  This `_text` attributes group stores the properties for the text box. It contains values for **body**, **bodyReduced**, **_location**, **_top**, **_left**, **_width**, **_borderWidth**, and **_cornerRadius**.  
+**_text** (object):  This `_text` attributes group stores the properties for the text box. It contains values for **body**, **_location**, **_top**, **_left**, **_width**, **_borderWidth**, and **_cornerRadius**.  
 
->**body** (string): This text displays in the text box.
+>**body** (string): This text displays in the text box.  
 
->**bodyReduced** (string): This text displays in the text box when the [audio](https://github.com/deltanet/adapt-audio) text size is set to reduced.
-
->**_location** (string): Sets the position of the text box. Options are `left` or `right`.
+>**_location** (string): Sets the position of the text box. Options are `left` or `right`.  
 
 >**_top** (number): Enter the number of pixels the text box should be from the top of the component widget.
 
