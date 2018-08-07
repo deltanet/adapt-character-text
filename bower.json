@@ -1,18 +1,13 @@
 {
   "name": "adapt-character-text",
-  "version": "2.0.12",
-  "framework": "^2.0.0",
+  "version": "2.1.0",
+  "framework": ">=2.1.2",
   "homepage": "https://github.com/deltanet/adapt-character-text",
   "issues": "https://github.com/deltanet/adapt-character-text/issues",
   "description": "A component that displays an image and a speech bubble style text area",
   "main": "/js/adapt-character-text.js",
   "displayName": "Character Text",
   "component": "character-text",
-  "assetFields" : [
-    "_graphic.large",
-    "_graphic.medium",
-    "_graphic.small"
-  ],
   "keywords": [
     "adapt-plugin",
     "adapt-component"
