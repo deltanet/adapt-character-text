@@ -9,11 +9,36 @@
 
 	.character-text-text {
 		padding-bottom: @component-body-padding-bottom;
+
+		p {
+	    margin-bottom: 0;
+	  }
+
+		&.center {
+			float: left;
+		}
 	}
 
 	.character-text-graphic {
 		img {
 			display: block;
+		}
+
+		&.center {
+			float: left;
+			width: 100%;
+			padding-bottom: @component-padding;
+
+			@media all and (max-width: @device-width-small) {
+				width: 60%;
+				margin-left: 20%;
+				padding-bottom: @component-padding * 2;
+			}
+
+			img {
+				margin-left: auto;
+				margin-right: auto;
+			}
 		}
 	}
 
@@ -23,13 +48,6 @@
 
 	.right {
 		float: right;
-	}
-
-	.center {
-		img {
-			margin-left: auto;
-			margin-right: auto;
-		}
 	}
 
 	.overlay {
