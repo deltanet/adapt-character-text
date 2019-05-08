@@ -76,19 +76,17 @@ define(function(require) {
 
         setupMediumSize: function() {
             this.$('.character-text-graphic').addClass('center');
-            this.$('.character-text-text').addClass('center');
             this.$('.bubble').addClass('bubble-bottom');
         },
 
         setupSmallSize: function() {
             this.$('.character-text-graphic').addClass('center');
-            this.$('.character-text-text').addClass('center');
             this.$('.bubble').addClass('bubble-bottom');
         },
 
         resetStyles: function() {
             // Text
-            this.$('.character-text-text').removeClass('overlay center');
+            this.$('.character-text-text').removeClass('overlay');
             this.$('.character-text-text').css('width','auto');
             this.$('.character-text-text').css('top',0);
             this.$('.character-text-text').css('left',0);
