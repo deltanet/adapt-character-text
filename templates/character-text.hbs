@@ -5,7 +5,11 @@
       <img src="{{_graphic.src}}" alt="{{_graphic.alt}}" data-large="{{_graphic.large}}" data-medium="{{_graphic.medium}}" data-small="{{_graphic.small}}" {{#if _graphic.alt}} aria-label="{{_graphic.alt}}" tabindex="0"{{else}} class="a11y-ignore" aria-hidden="true" tabindex="-1"{{/if}}/>
 	  </div>
 	  <div class="character-text-text">
-      <div class="bubble">{{{compile_a11y_text _text.body this}}}</div>
+      <div class="bubble{{#if _text._shadowEnabled}} shadow{{/if}}">
+        {{{compile_a11y_text _text.body this}}}
+        <div class="arrow"></div>
+        <div class="arrow-border"></div>
+      </div>
 	  </div>
   </div>
 </div>

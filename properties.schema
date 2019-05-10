@@ -12,7 +12,7 @@
       "validators": []
     }
   },
-  "properties":{
+  "properties": {
     "_supportedLayout": {
       "type": "string",
       "required": true,
@@ -30,13 +30,13 @@
       "translatable": true
 		},
     "_text": {
-      "type":"object",
-      "required":false,
+      "type": "object",
+      "required": false,
       "legend": "Speech box",
-      "properties":{
+      "properties": {
         "body": {
-          "type":"string",
-          "required":false,
+          "type": "string",
+          "required": false,
           "default": "",
           "title": "Text",
           "inputType": "TextArea",
@@ -44,8 +44,8 @@
           "translatable": true
         },
         "bodyReduced": {
-          "type":"string",
-          "required":false,
+          "type": "string",
+          "required": false,
           "default": "",
           "title": "Reduced text",
           "inputType": "TextArea",
@@ -53,8 +53,8 @@
           "translatable": true
         },
         "_location": {
-          "type":"string",
-          "required":true,
+          "type": "string",
+          "required": true,
           "enum": ["left", "right", "top", "bottom"],
           "default": "right",
           "title": "Position",
@@ -63,8 +63,8 @@
           "help": "This sets the position of the speech text."
         },
         "_top": {
-          "type":"number",
-          "required":true,
+          "type": "number",
+          "required": true,
           "title": "Top",
           "minLength": 1,
           "default": "0",
@@ -73,8 +73,8 @@
           "help": "Top position of speech text."
         },
         "_left": {
-          "type":"number",
-          "required":true,
+          "type": "number",
+          "required": true,
           "title": "Left",
           "minLength": 1,
           "default": "0",
@@ -83,8 +83,8 @@
           "help": "Top position of speech text."
         },
         "_width": {
-          "type":"number",
-          "required":true,
+          "type": "number",
+          "required": true,
           "title": "Width",
           "minLength": 1,
           "default": "0",
@@ -93,22 +93,49 @@
           "help": "Width of speech text"
         },
         "_borderWidth": {
-          "type":"number",
-          "required":true,
+          "type": "number",
+          "required": true,
           "title": "Border width",
           "minLength": 1,
           "default": "0",
           "inputType": "Number",
-          "validators": ["required", "number"]
+          "validators": ["required", "number"],
+          "help": "The colour of the border will match the Text Colour set below."
+        },
+        "_color": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "title": "Text Colour",
+          "inputType": "Text",
+          "validators": [],
+          "help": "Set the colour of the text using a hex code format, e.g. #000 for the colour black."
+        },
+        "_background": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "title": "Background Colour",
+          "inputType": "Text",
+          "validators": [],
+          "help": "Set the background colour of the text using a hex code format, e.g. #fff for the colour white."
         },
         "_cornerRadius": {
-          "type":"number",
-          "required":true,
+          "type": "number",
+          "required": true,
           "title": "Corner radius",
           "minLength": 1,
           "default": "0",
           "inputType": "Number",
           "validators": ["required", "number"]
+        },
+        "_shadowEnabled": {
+          "type": "boolean",
+          "required": false,
+          "default": false,
+          "title": "Drop Shadow",
+          "inputType": "Checkbox",
+          "validators": []
         }
       }
     },

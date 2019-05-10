@@ -16,8 +16,11 @@
         "_top": 5,
         "_left": 45,
         "_width": 50,
-        "_borderWidth":0,
-        "_cornerRadius":10
+        "_borderWidth": 0,
+        "_color": "",
+        "_background": "",
+        "_cornerRadius": 10,
+        "_shadowEnabled": false
     },
     "_graphic": {
         "_location": "left",

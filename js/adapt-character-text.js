@@ -25,16 +25,23 @@ define(function(require) {
                 this.$(cssSelector).on('inview', _.bind(this.inview, this));
             }
 
-            this.$('.bubble').css('border','solid '+ this.model.get('_text')._borderWidth+'px');
-            this.$('.bubble').css('border-radius',this.model.get('_text')._cornerRadius+'px');
+            this.$('.bubble').css({
+              'border': 'solid '+this.model.get('_text')._borderWidth+'px',
+              'border-radius': this.model.get('_text')._cornerRadius+'px'
+            });
 
-            if (Adapt.device.screenSize=='small') {
-                this.setupSmallSize();
-            } else if (Adapt.device.screenSize=='medium') {
-                this.setupMediumSize();
-            } else {
-                this.setupLargeSize();
+            if (this.model.get('_text')._color) {
+              this.$('.bubble').css({
+                'border-color': this.model.get('_text')._color,
+                'color': this.model.get('_text')._color
+              });
             }
+
+            if (this.model.get('_text')._background) {
+              this.$('.bubble').css('background-color', this.model.get('_text')._background);
+            }
+
+            this.resizeControl();
         },
 
         resizeControl: function() {
@@ -94,6 +101,9 @@ define(function(require) {
             this.$('.bubble').removeClass('bubble-bottom');
             this.$('.bubble').removeClass('bubble-left');
             this.$('.bubble').removeClass('bubble-right');
+            // Arrow
+            this.$('.arrow').attr('style','');
+            this.$('.arrow-border').attr('style','');
             // Graphic
             this.$('.character-text-graphic').removeClass('left');
             this.$('.character-text-graphic').removeClass('right');
@@ -120,6 +130,50 @@ define(function(require) {
         },
 
         resizeImage: function(width) {
+            // Arrow
+            if (this.model.get('_text')._background) {
+              this.$('.bubble-top').find('.arrow').css('border-top-color', this.model.get('_text')._background);
+              this.$('.bubble-right').find('.arrow').css('border-right-color', this.model.get('_text')._background);
+              this.$('.bubble-bottom').find('.arrow').css('border-bottom-color', this.model.get('_text')._background);
+              this.$('.bubble-left').find('.arrow').css('border-left-color', this.model.get('_text')._background);
+            }
+
+            // Border
+            if (this.model.get('_text')._borderWidth > 0) {
+              this.$('.bubble-top').find('.arrow-border').css('border-top-color', this.model.get('_text')._color);
+              this.$('.bubble-right').find('.arrow-border').css('border-right-color', this.model.get('_text')._color);
+              this.$('.bubble-bottom').find('.arrow-border').css('border-bottom-color', this.model.get('_text')._color);
+              this.$('.bubble-left').find('.arrow-border').css('border-left-color', this.model.get('_text')._color);
+
+              // Position
+              this.$('.bubble-top').find('.arrow-border').css({
+                'border-width': (16 + this.model.get('_text')._borderWidth)+'px',
+                'bottom': -( (16 + this.model.get('_text')._borderWidth)*2 + 1 )+'px',
+                'margin-right': -(16 + this.model.get('_text')._borderWidth)+'px'
+              });
+
+              this.$('.bubble-right').find('.arrow-border').css({
+                'border-width': (16 + this.model.get('_text')._borderWidth)+'px',
+                'left': -( (16 + this.model.get('_text')._borderWidth)*2 + 1 )+'px',
+                'margin-top': -(16 + this.model.get('_text')._borderWidth)+'px'
+              });
+
+              this.$('.bubble-bottom').find('.arrow-border').css({
+                'border-width': (16 + this.model.get('_text')._borderWidth)+'px',
+                'top': -( (16 + this.model.get('_text')._borderWidth)*2 + 1 )+'px',
+                'margin-right': -(16 + this.model.get('_text')._borderWidth)+'px'
+              });
+
+              this.$('.bubble-left').find('.arrow-border').css({
+                'border-width': (16 + this.model.get('_text')._borderWidth)+'px',
+                'right': -( (16 + this.model.get('_text')._borderWidth)*2 + 1 )+'px',
+                'margin-top': -(16 + this.model.get('_text')._borderWidth)+'px'
+              });
+
+            } else {
+              this.$('.bubble-top').find('.arrow-border').css('display', 'none');
+            }
+
             var src = this.$('.character-text-graphic img').attr('data-' + width);
             this.$('.character-text-graphic img').attr('src', src);
 

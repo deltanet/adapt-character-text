@@ -20,7 +20,7 @@ The attributes listed below are used in *components.json* to configure **Charact
 
 **instruction** (string): This optional text appears above the component. It is frequently used to guide the learner’s interaction with the component.
 
-**_text** (object):  This `_text` attributes group stores the properties for the text box. It contains values for **body**, **_location**, **_top**, **_left**, **_width**, **_borderWidth**, and **_cornerRadius**.  
+**_text** (object):  This `_text` attributes group stores the properties for the text box. It contains values for **body**, **_location**, **_top**, **_left**, **_width**, **_borderWidth**, **_color**, **_background**, **_cornerRadius**, and **_shadowEnabled**.  
 
 >**body** (string): This text displays in the text box.  
 
@@ -34,7 +34,13 @@ The attributes listed below are used in *components.json* to configure **Charact
 
 >**_borderWidth** (number): Enter the value in pixels for the border width on the text box.
 
->**_cornerRadius** (number): Enter the value in pixels for the corner radius on the text box.
+>**_color** (string): Defines the CSS color class for the body text.  
+
+>**_background** (string): Defines the CSS background color class for the body text.  
+
+>**_cornerRadius** (number): Enter the value in pixels for the corner radius on the text box.  
+
+>**_shadowEnabled** (boolean): If set to `true`, a drop shadow will be applied to the text element.  
 
 **_graphic** (object):  This `_graphic` attributes group stores the properties for the image. It contains values for **_location**, **alt**, **large**, **medium**, and **small**.  
 
@@ -58,7 +64,7 @@ The attributes listed below are used in *components.json* to configure **Charact
 No known limitations.  
 
 ----------------------------
-**Version number:**  2.1.2    
+**Version number:**  2.2.0    
 **Framework versions supported:**  2.1.2+    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-character-text/graphs/contributors)     
 **Accessibility support:** Yes  
