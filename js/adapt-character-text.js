@@ -1,29 +1,17 @@
-define(function(require) {
+define([
+    'core/js/adapt',
+    'core/js/views/componentView',
+    'core/js/models/componentModel'
+], function(Adapt, ComponentView, ComponentModel) {
 
-    var ComponentView = require('core/js/views/componentView');
-    var Adapt = require('core/js/adapt');
-
-    var CharacterText = ComponentView.extend({
+    var CharacterTextView = ComponentView.extend({
 
         preRender: function() {
-            this.listenTo(Adapt, 'device:changed', this.resizeControl);
             this.listenTo(Adapt, 'device:resize', this.resizeControl, this);
         },
 
         postRender: function() {
-            this.listenTo(this.model, 'change:_isComplete', this.removeInviewListener);
             this.resizeImage(Adapt.device.screenSize);
-
-            // Check if instruction or body is set, otherwise force completion
-            var cssSelector = this.$('.component-instruction').length > 0 ? '.component-instruction'
-                : (this.$('.bubble').length > 0 ? '.bubble' : null);
-
-            if (!cssSelector) {
-                this.setCompletionStatus();
-            } else {
-                this.model.set('cssSelector', cssSelector);
-                this.$(cssSelector).on('inview', _.bind(this.inview, this));
-            }
 
             this.$('.bubble').css({
               'border': 'solid '+this.model.get('_text')._borderWidth+'px',
@@ -42,6 +30,33 @@ define(function(require) {
             }
 
             this.resizeControl();
+
+            this.setupInview();
+        },
+
+        setupInview: function() {
+            var selector = this.getInviewElementSelector();
+            if (!selector) {
+                this.setCompletionStatus();
+                return;
+            }
+
+            this.setupInviewCompletion(selector);
+        },
+
+        /**
+         * determines which element should be used for inview logic - body, instruction or title - and returns the selector for that element
+         */
+        getInviewElementSelector: function() {
+            if (this.$('.bubble').length > 0) return '.bubble';
+
+            if (this.model.get('body')) return '.component-body';
+
+            if (this.model.get('instruction')) return '.component-instruction';
+
+            if (this.model.get('displayTitle')) return '.component-title';
+
+            return null;
         },
 
         resizeControl: function() {
@@ -112,23 +127,6 @@ define(function(require) {
             this.$('.character-text-widget').removeClass('image');
         },
 
-        inview: function(event, visible, visiblePartX, visiblePartY) {
-            if (visible) {
-                if (visiblePartY === 'top') {
-                    this._isVisibleTop = true;
-                } else if (visiblePartY === 'bottom') {
-                    this._isVisibleBottom = true;
-                } else {
-                    this._isVisibleTop = true;
-                    this._isVisibleBottom = true;
-                }
-
-                if (this._isVisibleTop && this._isVisibleBottom) {
-                    this.setCompletionStatus();
-                }
-            }
-        },
-
         resizeImage: function(width) {
             // Arrow
             if (this.model.get('_text')._background) {
@@ -180,21 +178,12 @@ define(function(require) {
             this.$('.character-text-graphic').imageready(_.bind(function() {
                 this.setReadyStatus();
             }, this));
-        },
-
-        removeInviewListener: function(model, changeAttribute) {
-            if (changeAttribute) {
-                this.$(this.model.get('cssSelector')).off('inview');
-            }
-        },
-
-        remove: function() {
-            this.$(this.model.get('cssSelector')).off('inview');
-            Backbone.View.prototype.remove.apply(this, arguments);
         }
 
     });
 
-    Adapt.register("character-text", CharacterText);
-
+    return Adapt.register('character-text', {
+        model: ComponentModel.extend({}),// create a new class in the inheritance chain so it can be extended per component type if necessary later
+        view: CharacterTextView
+    });
 });
