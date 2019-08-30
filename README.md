@@ -64,8 +64,8 @@ The attributes listed below are used in *components.json* to configure **Charact
 No known limitations.  
 
 ----------------------------
-**Version number:**  2.2.0    
-**Framework versions supported:**  2.1.2+    
+**Version number:**  3.0.0    
+**Framework versions supported:**  4+    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-character-text/graphs/contributors)     
 **Accessibility support:** Yes  
 **RTL support:** Yes  
