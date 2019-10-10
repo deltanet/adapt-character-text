@@ -7,7 +7,10 @@ define([
     var CharacterTextView = ComponentView.extend({
 
         preRender: function() {
-            this.listenTo(Adapt, 'device:resize', this.resizeControl, this);
+            this.listenTo(Adapt, {
+                "device:resize": this.resizeControl,
+                "pageView:ready": this.setupInview
+            });
         },
 
         postRender: function() {
@@ -30,8 +33,6 @@ define([
             }
 
             this.resizeControl();
-
-            this.setupInview();
         },
 
         setupInview: function() {

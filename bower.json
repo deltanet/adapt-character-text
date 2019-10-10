@@ -1,6 +1,6 @@
 {
   "name": "adapt-character-text",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "framework": ">=4",
   "homepage": "https://github.com/deltanet/adapt-character-text",
   "issues": "https://github.com/deltanet/adapt-character-text/issues",
@@ -12,5 +12,5 @@
     "adapt-plugin",
     "adapt-component"
   ],
-  "license": "GPL-3.0"
+  "license": "GPLv3"
 }
