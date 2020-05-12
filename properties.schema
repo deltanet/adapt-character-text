@@ -107,18 +107,16 @@
           "required": false,
           "default": "",
           "title": "Text Colour",
-          "inputType": "Text",
-          "validators": [],
-          "help": "Set the colour of the text using a hex code format, e.g. #000 for the colour black."
+          "inputType": "ColourPicker",
+          "validators": []
         },
         "_background": {
           "type": "string",
           "required": false,
           "default": "",
           "title": "Background Colour",
-          "inputType": "Text",
-          "validators": [],
-          "help": "Set the background colour of the text using a hex code format, e.g. #fff for the colour white."
+          "inputType": "ColourPicker",
+          "validators": []
         },
         "_cornerRadius": {
           "type": "number",
