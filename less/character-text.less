@@ -1,4 +1,4 @@
-.character-text-component {
+.character-text {
 
 	.character-text-widget {
 		position: relative;
@@ -8,7 +8,7 @@
 	}
 
 	.character-text-text {
-		padding-bottom: @component-body-padding-bottom;
+		padding-bottom: @item-padding;
 
 		p:last-of-type {
 	    margin-bottom: 0;
@@ -22,12 +22,12 @@
 
 		&.center {
 			width: 100%;
-			padding-bottom: @component-padding;
+			padding-bottom: @item-padding;
 
 			@media all and (max-width: @device-width-small) {
 				width: 60%;
 				margin-left: 20%;
-				padding-bottom: @component-padding * 2;
+				padding-bottom: @item-padding * 2;
 			}
 
 			img {
@@ -51,10 +51,10 @@
 
 	.bubble {
 		position: relative;
-		padding: @component-padding;
-		background: @primary-color;
-		border-color: @primary-color;
-		color: @primary-color-inverted;
+		padding: @item-padding;
+		background: @item-color;
+		border-color: @item-color;
+		color: @item-color-inverted;
 
 		.arrow {
 			border-style: solid;
@@ -67,80 +67,80 @@
 	    position: absolute;
 		}
 
-		&.shadow {
+		&.text-shadow {
 			box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 		}
 	}
 
 	.bubble-top {
 		.arrow {
-			border-color: @primary-color transparent transparent transparent;
+			border-color: @item-color transparent transparent transparent;
 			border-width: 16px;
 			bottom: -32px;
 			right: 50%;
 			margin-right: -16px;
 		}
 		.arrow-border {
-			border-color: @primary-color-inverted transparent transparent transparent;
+			border-color: @item-color-inverted transparent transparent transparent;
 			right: 50%;
 		}
 	}
 
 	.bubble-right {
 		.arrow {
-			border-color: transparent @primary-color transparent transparent;
+			border-color: transparent @item-color transparent transparent;
 			border-width: 16px;
 			left: -32px;
 			top: 50%;
 			margin-top: -16px;
 		}
 		.arrow-border {
-			border-color: transparent @primary-color-inverted transparent transparent;
+			border-color: transparent @item-color-inverted transparent transparent;
 			top: 50%;
 		}
 	}
 
 	.bubble-bottom {
 		.arrow {
-			border-color: transparent transparent @primary-color transparent;
+			border-color: transparent transparent @item-color transparent;
 			border-width: 16px;
 			top: -32px;
 			right: 50%;
 			margin-right: -16px;
 		}
 		.arrow-border {
-			border-color: transparent transparent @primary-color-inverted transparent;
+			border-color: transparent transparent @item-color-inverted transparent;
 			right: 50%;
 		}
 	}
 
 	.bubble-left {
 		.arrow {
-			border-color: transparent transparent transparent @primary-color;
+			border-color: transparent transparent transparent @item-color;
 			border-width: 16px;
 			right: -32px;
 			top: 50%;
 			margin-top: -16px;
 		}
 		.arrow-border {
-			border-color: transparent transparent transparent @primary-color-inverted;
+			border-color: transparent transparent transparent @item-color-inverted;
 			top: 50%;
 		}
 	}
 
 	.character-text-inner,
-	.component-inner {
+	.component__inner {
 		padding-bottom: 0px;
 	    background: transparent;
 	}
 
 	.component-title{
-		background-color: @component-background-color;
+		background-color: @item-color;
 		margin-bottom: 0px;
 	}
 
 	.component-body {
 		margin-top: 0px;
-		background-color: @component-background-color;
+		background-color: @item-color;
 	}
 }
