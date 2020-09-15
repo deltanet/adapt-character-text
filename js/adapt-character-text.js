@@ -51,11 +51,11 @@ define([
     getInviewElementSelector: function() {
       if (this.$('.bubble').length > 0) return '.bubble';
 
-      if (this.model.get('body')) return '.component-body';
+      if (this.model.get('body')) return '.component__body';
 
-      if (this.model.get('instruction')) return '.component-instruction';
+      if (this.model.get('instruction')) return '.component__instruction';
 
-      if (this.model.get('displayTitle')) return '.component-title';
+      if (this.model.get('displayTitle')) return '.component__title';
 
       return null;
     },
@@ -75,44 +75,44 @@ define([
 
     setupLargeSize: function() {
       // Text
-      this.$('.character-text-text').addClass('overlay');
-      this.$('.character-text-text').css('width', this.model.get('_text')._width + '%');
-      this.$('.character-text-text').css('top', this.model.get('_text')._top);
-      this.$('.character-text-text').css('left', this.model.get('_text')._left + '%');
+      this.$('.character-text__text').addClass('overlay');
+      this.$('.character-text__text').css('width', this.model.get('_text')._width + '%');
+      this.$('.character-text__text').css('top', this.model.get('_text')._top);
+      this.$('.character-text__text').css('left', this.model.get('_text')._left + '%');
       this.$('.bubble').addClass('bubble-' + (this.model.get('_text')._location));
       // Graphic
       if (this.model.has('_graphic')) {
         if (this.model.get('_graphic')._location == "left") {
-          this.$('.character-text-graphic').addClass('left');
+          this.$('.character-text__graphic').addClass('left');
         }
         if (this.model.get('_graphic')._location == "right") {
-          this.$('.character-text-graphic').addClass('right');
+          this.$('.character-text__graphic').addClass('right');
         }
         if (this.model.get('_graphic')._location == "center") {
-          this.$('.character-text-graphic').addClass('center');
+          this.$('.character-text__graphic').addClass('center');
         }
-        if (this.$('.character-text-graphic img').attr('data-large') !== "") {
-          this.$('.character-text-widget').addClass('image');
+        if (this.$('.character-text__graphic img').attr('data-large') !== "") {
+          this.$('.character-text__widget').addClass('image');
         }
       }
     },
 
     setupMediumSize: function() {
-      this.$('.character-text-graphic').addClass('center');
+      this.$('.character-text__graphic').addClass('center');
       this.$('.bubble').addClass('bubble-bottom');
     },
 
     setupSmallSize: function() {
-      this.$('.character-text-graphic').addClass('center');
+      this.$('.character-text__graphic').addClass('center');
       this.$('.bubble').addClass('bubble-bottom');
     },
 
     resetStyles: function() {
       // Text
-      this.$('.character-text-text').removeClass('overlay');
-      this.$('.character-text-text').css('width', 'auto');
-      this.$('.character-text-text').css('top', 0);
-      this.$('.character-text-text').css('left', 0);
+      this.$('.character-text__text').removeClass('overlay');
+      this.$('.character-text__text').css('width', 'auto');
+      this.$('.character-text__text').css('top', 0);
+      this.$('.character-text__text').css('left', 0);
       this.$('.bubble').removeClass('bubble-top');
       this.$('.bubble').removeClass('bubble-bottom');
       this.$('.bubble').removeClass('bubble-left');
@@ -121,11 +121,11 @@ define([
       this.$('.arrow').attr('style', '');
       this.$('.arrow-border').attr('style', '');
       // Graphic
-      this.$('.character-text-graphic').removeClass('left');
-      this.$('.character-text-graphic').removeClass('right');
-      this.$('.character-text-graphic').removeClass('center');
+      this.$('.character-text__graphic').removeClass('left');
+      this.$('.character-text__graphic').removeClass('right');
+      this.$('.character-text__graphic').removeClass('center');
       // Widget
-      this.$('.character-text-widget').removeClass('image');
+      this.$('.character-text__widget').removeClass('image');
     },
 
     resizeImage: function(width) {
@@ -173,10 +173,10 @@ define([
         this.$('.bubble-top').find('.arrow-border').css('display', 'none');
       }
 
-      var src = this.$('.character-text-graphic img').attr('data-' + width);
-      this.$('.character-text-graphic img').attr('src', src);
+      var src = this.$('.character-text__graphic img').attr('data-' + width);
+      this.$('.character-text__graphic img').attr('src', src);
 
-      this.$('.character-text-graphic').imageready(_.bind(function() {
+      this.$('.character-text__graphic').imageready(_.bind(function() {
         this.setReadyStatus();
       }, this));
     }
