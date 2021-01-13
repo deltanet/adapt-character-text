@@ -52,19 +52,20 @@
 	.bubble {
 		position: relative;
 		padding: @item-padding;
-		background: @item-color;
-		border-color: @item-color;
-		color: @item-color-inverted;
+		background: @item-color-selected;
+		border-color: @item-color-inverted-selected;
+		color: @item-color-inverted-selected;
 
 		.arrow {
-			border-style: solid;
 	    position: absolute;
 			z-index: 1;
+			border-style: solid;
 		}
 
 		.arrow-border {
+			position: absolute;
 			border-style: solid;
-	    position: absolute;
+			border-color: transparent;
 		}
 
 		&.text-shadow {
@@ -74,73 +75,53 @@
 
 	.bubble-top {
 		.arrow {
-			border-color: @item-color transparent transparent transparent;
+			border-color: @item-color-selected transparent transparent transparent;
 			border-width: 16px;
 			bottom: -32px;
 			right: 50%;
 			margin-right: -16px;
 		}
 		.arrow-border {
-			border-color: @item-color-inverted transparent transparent transparent;
 			right: 50%;
 		}
 	}
 
 	.bubble-right {
 		.arrow {
-			border-color: transparent @item-color transparent transparent;
+			border-color: transparent @item-color-selected transparent transparent;
 			border-width: 16px;
 			left: -32px;
 			top: 50%;
 			margin-top: -16px;
 		}
 		.arrow-border {
-			border-color: transparent @item-color-inverted transparent transparent;
 			top: 50%;
 		}
 	}
 
 	.bubble-bottom {
 		.arrow {
-			border-color: transparent transparent @item-color transparent;
+			border-color: transparent transparent @item-color-selected transparent;
 			border-width: 16px;
 			top: -32px;
 			right: 50%;
 			margin-right: -16px;
 		}
 		.arrow-border {
-			border-color: transparent transparent @item-color-inverted transparent;
 			right: 50%;
 		}
 	}
 
 	.bubble-left {
 		.arrow {
-			border-color: transparent transparent transparent @item-color;
+			border-color: transparent transparent transparent @item-color-selected;
 			border-width: 16px;
 			right: -32px;
 			top: 50%;
 			margin-top: -16px;
 		}
 		.arrow-border {
-			border-color: transparent transparent transparent @item-color-inverted;
 			top: 50%;
 		}
-	}
-
-	.character-text__inner,
-	.component__inner {
-		padding-bottom: 0px;
-	    background: transparent;
-	}
-
-	.component__title{
-		background-color: @item-color-inverted;
-		margin-bottom: 0px;
-	}
-
-	.component__body {
-		margin-top: 0px;
-		background-color: @item-color-inverted;
 	}
 }
