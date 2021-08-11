@@ -1,11 +1,11 @@
-<div class="character-text-inner component-inner">
+<div class="character-text__inner component__inner">
   {{> component this}}
-  <div class="character-text-widget component-widget">
-    <div class="character-text-graphic">
+  <div class="character-text__widget component__widget">
+    <div class="character-text__graphic">
       <img src="{{_graphic.src}}"{{#if _graphic.alt}} alt="{{_graphic.alt}}" aria-label="{{_graphic.alt}}"{{else}} aria-hidden="true"{{/if}} data-large="{{_graphic.large}}" data-medium="{{_graphic.medium}}" data-small="{{_graphic.small}}"/>
 	  </div>
-	  <div class="character-text-text">
-      <div class="bubble{{#if _text._shadowEnabled}} shadow{{/if}}">
+	  <div class="character-text__text">
+      <div class="bubble{{#if _text._shadowEnabled}} text-shadow{{/if}}">
         {{{compile _text.body this}}}
         <div class="arrow"></div>
         <div class="arrow-border"></div>
