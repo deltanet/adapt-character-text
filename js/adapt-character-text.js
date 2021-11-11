@@ -9,7 +9,7 @@ define([
     preRender: function() {
       this.listenTo(Adapt, {
         "device:resize": this.resizeControl,
-        "pageView:ready": this.setupInview
+        "componentView:postRender": this.setupInview
       });
     },
 
