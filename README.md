@@ -46,7 +46,7 @@ The attributes listed below are used in *components.json* to configure **Charact
 
 >**_location** (string): Sets the position of the image. Options are `left` or `right`.
 
->**alt** (string): This text becomes the image’s `alt` attribute.  
+>**alt** (string): This text becomes the image’s `alternative text` attribute.  
 
 >**large** (string): File name (including path) of the image on large sized devices. Path should be relative to the *src* folder.  
 
@@ -55,17 +55,17 @@ The attributes listed below are used in *components.json* to configure **Charact
 >**small** (string): File name (including path) of the image on small sized devices. Path should be relative to the *src* folder.  
 
 ## Accessibility
-+ Remember to include an **alt** attribute for all your images. Screen readers will read aloud alt text content, so leave the alt text empty (`"alt": ""`) if the image does not contribute significant course content.  
-+ If the alt text is left empty, the image will *not* be included in the tab order. If the component is configured to display [title or body text]((https://github.com/adaptlearning/adapt_framework/wiki/Core-model-attributes)), these will remain keyboard accessible.  
-+ If the alt text is assigned a value, but the component is not being tracked for course completion, assign the class `"no-state"` to **_classes**. Adapt's accessibility mode reports to the learner the 'state' of the component, whether it is complete or incomplete. It is not common practice to require interaction with (or 'completion' of) an image for course completion. Indeed, a screen reader needlessly announcing the state of an image may be distracting for the learner. Assigning the built-in class `"no-state"` prevents this.  
++ **Character text** has been assigned a label using the [aria-label](https://github.com/adaptlearning/adapt_framework/wiki/Aria-Labels) attribute: **ariaRegion**. This label is not a visible element. It is utilized by assistive technology such as screen readers. Should the region's text need to be customised, it can be found within the **globals** object in [*properties.schema*](https://github.com/deltanet/adapt-character-text/blob/master/properties.schema).
+
+If the 'alternative text' is left empty, the image will *not* be included in the tab order.
 
 ## Limitations
 
 No known limitations.  
 
 ----------------------------
-**Version number:**  4.0.1    
-**Framework versions supported:**  5+    
+**Version number:**  4.1.0    
+**Framework versions supported:**  5.8+    
 **Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-character-text/graphs/contributors)     
 **Accessibility support:** Yes  
 **RTL support:** Yes  
