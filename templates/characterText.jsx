@@ -9,6 +9,7 @@ export default function CharacterText (props) {
 
   const bubbleStyle = {
     border: _text._borderWidth,
+    borderStyle: 'solid',
     borderRadius: _text._cornerRadius,
     borderColor: _text._color,
     color: _text._color,
