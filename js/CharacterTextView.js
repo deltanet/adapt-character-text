@@ -1,35 +1,39 @@
 import Adapt from 'core/js/adapt';
+import device from 'core/js/device';
 import ComponentView from 'core/js/views/componentView';
 
 class CharacterTextView extends ComponentView {
 
-  preRender() {
-    this.listenTo(Adapt, {
-      'device:resize': this.resizeControl
-    });
+  initialize(...args) {
+    super.initialize(...args);
+
+    this.setUpEventListeners();
+  }
+
+  setUpEventListeners() {
+    this.listenTo(Adapt, 'device:resize', this.resizeControl);
   }
 
   postRender() {
     this.resizeControl();
 
-    this.$('.character-text__widget').imageready(() => {
-      this.setReadyStatus();
-      this.setupInviewCompletion('.character-text__widget');
-    });
+    this.$('.character-text__widget').imageready(this.setReadyStatus.bind(this));
+
+    this.setupInviewCompletion('.character-text__widget');
   }
 
   resizeControl() {
     this.resetStyles();
 
-    if (Adapt.device.screenSize == 'small') {
+    if (device.screenSize == 'small') {
       this.setupSmallSize();
-    } else if (Adapt.device.screenSize == 'medium') {
+    } else if (device.screenSize == 'medium') {
       this.setupMediumSize();
     } else {
       this.setupLargeSize();
     }
 
-    this.resizeImage(Adapt.device.screenSize);
+    this.resizeImage(device.screenSize);
   }
 
   setupLargeSize() {

@@ -64,9 +64,9 @@ If the 'alternative text' is left empty, the image will *not* be included in the
 No known limitations.  
 
 ----------------------------
-**Version number:**  4.1.1    
-**Framework versions supported:**  5.8+    
-**Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-character-text/graphs/contributors)     
-**Accessibility support:** Yes  
-**RTL support:** Yes  
-**Authoring tool support:** Yes  
+**Version number:**  5.0.0
+**Framework versions supported:**  5.20.1+
+**Author / maintainer:** DeltaNet with [contributors](https://github.com/deltanet/adapt-character-text/graphs/contributors)
+**Accessibility support:** Yes
+**RTL support:** Yes
+**Authoring tool support:** Yes
