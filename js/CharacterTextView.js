@@ -15,11 +15,11 @@ class CharacterTextView extends ComponentView {
   }
 
   postRender() {
-    this.resizeControl();
-
-    this.$('.character-text__widget').imageready(this.setReadyStatus.bind(this));
-
-    this.setupInviewCompletion('.character-text__widget');
+    this.$('.character-text__widget').imageready(() => {
+      this.setReadyStatus();
+      this.setupInviewCompletion('.character-text__text');
+      this.resizeControl();
+    });
   }
 
   resizeControl() {
